@@ -1,0 +1,116 @@
+body {
+    margin: 0; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    background-color: #f4f4f9;
+    color: #333; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    min-height: 100vh; 
+    padding: 20px; 
+    box-sizing: border-box; 
+}
+
+.container { 
+    background: white; 
+    padding: 30px; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
+    width: 600px; 
+    max-width: 100%; 
+    max-height: 90vh; 
+    overflow-y: auto; 
+}
+
+h1 { 
+    text-align: center; 
+    color: #4a90e2; 
+    margin-top: 0; 
+}
+
+h3 { 
+    color: #333; 
+    border-bottom: 2px solid #eee; 
+    padding-bottom: 5px; 
+    margin-top: 25px; 
+}
+
+.upload-box { 
+    border: 2px dashed #ccc; 
+    padding: 30px; 
+    text-align: center; 
+    display: block; 
+    margin-bottom: 20px; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    transition: all 0.2s ease; 
+}
+
+.upload-box:hover { 
+    border-color: #4a90e2; 
+    background-color: #f0f8ff; 
+    transform: scale(1.02); 
+}
+
+input[type="file"] {
+    display: none; 
+}
+
+table { 
+    width: 100%; 
+    border-collapse: collapse; 
+    margin-top: 10px; 
+    font-size: 14px; 
+}
+
+th, td { 
+    text-align: left; 
+    padding: 10px; 
+    border-bottom: 1px solid #ddd; 
+}
+
+th { 
+    background-color: #4a90e2; 
+    color: white; 
+    position: sticky; 
+    top: 0; 
+}
+
+.error { 
+    color: red; 
+    text-align: center; 
+    margin-top: 10px; 
+    font-weight: bold; 
+}
+
+.badge { 
+    background: #eee; 
+    padding: 2px 6px; 
+    border-radius: 4px; 
+    font-family: monospace; 
+}
+
+.status-box { 
+    padding: 15px; 
+    border-radius: 5px; 
+    text-align: center; 
+    font-weight: bold; 
+    margin-bottom: 20px; 
+    color: white;
+}
+
+/* Green */
+.status-Clean { 
+    background-color: #28a745; 
+}      
+
+/* Yellow */
+.status-Suspicious { 
+    background-color: #ffc107; 
+    color: #333; 
+} 
+
+/* Red */
+.status-Corrupted { 
+    background-color: #dc3545; 
+}  

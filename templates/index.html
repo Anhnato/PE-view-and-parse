@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PE Header Analyzer</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css')}}">
+</head>
+<body>
+
+<div class="container">
+    <h1>PE Inspector</h1>
+    
+    <form method="POST" enctype="multipart/form-data">
+        <label class="upload-box">
+            <strong>Click to Select EXE or DLL</strong>
+            <input type="file" name="file" onchange="this.form.submit()">
+        </label>
+    </form>
+
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+
+    {% if data and not data.error %}
+        <div class="status-box status-{{ data.status }}">
+            Analysis Result: {{ data.status }}
+        </div>
+
+        {% if data.warnings %}
+            <div style="background: #fff3cd; border: 1px solid #ffeeba; color: #856404; padding: 10px; border-radius: 5px; margin-bottom: 20px;">
+                <strong>Warnings Detected:</strong>
+                <ul style="margin: 5px 0 0 20px; padding: 0;">
+                    {% for warn in data.warnings %}
+                        <li>{{ warn }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+        
+        <h3>1. Headers Overview</h3>
+        <table>
+            <tbody>
+                <tr><td>File Name</td><td><strong>{{ data.filename }}</strong></td></tr>
+                <tr><td>Architecture</td><td>{{ data.arch }} <span class="badge">{{ data.machine }}</span></td></tr>
+                <tr><td>Entry Point</td><td><span class="badge">{{ data.entry_point }}</span></td></tr>
+                <tr><td>Image Base</td><td><span class="badge">{{ data.image_base }}</span></td></tr>
+                <tr><td>Timestamp</td><td>{{ data.timestamp }}</td></tr>
+                <tr><td>Num Sections</td><td>{{ data.num_sections }}</td></tr>
+            </tbody>
+        </table>
+
+        <h3>2. Section Headers</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Virtual Addr (RVA)</th>
+                    <th>Raw Offset</th>
+                    <th>Raw Size</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for section in data.sections %}
+                <tr>
+                    <td><strong>{{ section.name }}</strong></td>
+                    <td><span class="badge">{{ section.virtual_address }}</span></td>
+                    <td><span class="badge">{{ section.raw_pointer }}</span></td>
+                    <td>{{ section.raw_size }} bytes</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% elif data and data.error %}
+        <p class="error">{{ data.error }}</p>
+    {% endif %}
+</div>
+
+</body>
+</html>
