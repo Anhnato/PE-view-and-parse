@@ -20,7 +20,7 @@ Before you begin, ensure you have the following installed on your system:
 
 Follow these steps to set up the project locally.
 
-### 1. Clone the Repository
+### Clone the Repository
 
 Open your terminal (Command Prompt, PowerShell, or Bash) and run:
 
