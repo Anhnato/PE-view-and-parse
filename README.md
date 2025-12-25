@@ -27,3 +27,11 @@ Open your terminal (Command Prompt, PowerShell, or Bash) and run:
 ```bash
 git clone https://github.com/Anhnato/PE-view-and-parse.git
 ```
+
+## After cloning
+
+Run the program
+
+```bash
+python app.py
+```
