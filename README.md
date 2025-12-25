@@ -25,6 +25,5 @@ Follow these steps to set up the project locally.
 Open your terminal (Command Prompt, PowerShell, or Bash) and run:
 
 ```bash
-git clone [https://github.com/YOUR_USERNAME/PE_Web_Analyzer.git](https://github.com/YOUR_USERNAME/PE_Web_Analyzer.git)
-cd PE_Web_Analyzer
+git clone https://github.com/Anhnato/PE-view-and-parse.git
 ```
